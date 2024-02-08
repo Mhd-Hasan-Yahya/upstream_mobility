@@ -1,0 +1,80 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- description: Generated server url
+  url: http://localhost:8080
+paths:
+  /activity:
+    get:
+      operationId: getSpecificActivity
+      parameters:
+      - explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          default: ""
+          example: null
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: participants
+        required: false
+        schema:
+          example: null
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: price
+        required: false
+        schema:
+          example: null
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: link
+        required: false
+        schema:
+          default: ""
+          example: null
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: key
+        required: false
+        schema:
+          default: ""
+          example: null
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: accessibility
+        required: false
+        schema:
+          example: null
+          format: double
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                example: null
+                type: string
+          description: OK
+      tags:
+      - bored-endpoint
+      x-accepts: '*/*'
+components:
+  schemas: {}
+

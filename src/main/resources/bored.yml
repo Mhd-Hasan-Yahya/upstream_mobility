@@ -1,0 +1,57 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /activity:
+    get:
+      tags:
+        - bored-endpoint
+      operationId: getSpecificActivity
+      parameters:
+        - name: type
+          in: query
+          required: false
+          schema:
+            type: string
+            default: ''
+        - name: participants
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - name: price
+          in: query
+          required: false
+          schema:
+            type: number
+            format: double
+        - name: link
+          in: query
+          required: false
+          schema:
+            type: string
+            default: ''
+        - name: key
+          in: query
+          required: false
+          schema:
+            type: string
+            default: ''
+        - name: accessibility
+          in: query
+          required: false
+          schema:
+            type: number
+            format: double
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
