@@ -1,10 +1,12 @@
 package at.upstream_mobility.itacademy.bored.controler;
+
 import at.upstream_mobility.itacademy.bored.client.BoredClient;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
@@ -52,7 +54,7 @@ class BoredEndpointTest {
     }
 
     @Test
-    public void testGetAnActivityWith_NoActivityFound() {
+    void testGetAnActivityWith_NoActivityFound() {
         String result = testRestTemplate.getForObject(localUrl + "?type=sport", String.class);
         assertEquals("No activity found", result);
     }

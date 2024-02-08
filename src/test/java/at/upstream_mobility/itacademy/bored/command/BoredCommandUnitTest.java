@@ -1,4 +1,5 @@
 package at.upstream_mobility.itacademy.bored.command;
+
 import at.upstream_mobility.itacademy.bored.client.BoredClient;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,19 +21,17 @@ class BoredCommandUnitTest {
     private BoredClient client;
 
     @Test
-    public void testGetSpecificActivity() {
+    void testGetAnActivity() {
         when(client.getParams(anyString(), anyInt(), anyDouble(), anyString(), anyString(), anyDouble()))
                 .thenReturn("Test-Params");
         when(client.getActivityByParams("Test-Params"))
                 .thenReturn("Test-Activity");
 
-        String result = command.getSpecificActivity("type", 1, 0.1, "link", "key", 0.99);
+        String result = command.getAnActivity("type", 1, 0.1, "link", "key", 0.99);
 
         verify(client).getParams("type", 1, 0.1, "link", "key", 0.99);
         verify(client).getActivityByParams("Test-Params");
         assertEquals("Test-Activity", result);
     }
-
-
 
 }

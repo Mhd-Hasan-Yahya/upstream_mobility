@@ -15,8 +15,9 @@ public class BoredCommand {
     public BoredCommand(BoredClient client) {
         this.client = client;
     }
+
     @ShellMethod(key = "get", value = "Gets an activity")
-    public String getSpecificActivity(
+    public String getAnActivity(
             @ShellOption(defaultValue = "", valueProvider = ActivityTypeCompletion.class) String type,
             @ShellOption(defaultValue = "") Integer participants,
             @ShellOption(defaultValue = "") Double price,

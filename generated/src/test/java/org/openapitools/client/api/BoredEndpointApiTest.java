@@ -47,7 +47,7 @@ public class BoredEndpointApiTest {
         String link = null;
         String key = null;
         Double accessibility = null;
-                String response = api.getSpecificActivity(type, participants, price, link, key, accessibility);
+                String response = api.getAnActivity(type, participants, price, link, key, accessibility);
         // TODO: test validations
     }
     

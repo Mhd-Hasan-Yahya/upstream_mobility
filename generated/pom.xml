@@ -208,7 +208,6 @@
             </build>
         </profile>
     </profiles>
-
     <dependencies>
         <dependency>
             <groupId>io.swagger</groupId>

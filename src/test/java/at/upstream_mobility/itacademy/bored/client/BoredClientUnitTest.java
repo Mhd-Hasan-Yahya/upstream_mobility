@@ -23,12 +23,12 @@ class BoredClientUnitTest {
     private final String testUrl = "${testUrl}";
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         boredClient = new BoredClient(restTemplate, testUrl);
     }
 
     @Test
-    public void testGetActivityByParams() {
+    void testGetActivityByParams() {
         Activity activity = new Activity();
         activity.setActivity("Test Activity");
         when(restTemplate.getForObject(testUrl + "type=music", Activity.class)).thenReturn(activity);
@@ -39,7 +39,7 @@ class BoredClientUnitTest {
     }
 
     @Test
-    public void testGetActivityByParams_NoActivityFound() {
+    void testGetActivityByParams_NoActivityFound() {
         when(restTemplate.getForObject(testUrl + "type=not-exist", Activity.class)).thenReturn(null);
 
         String result = boredClient.getActivityByParams("type=not-exist");

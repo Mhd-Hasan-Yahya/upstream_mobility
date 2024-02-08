@@ -10,7 +10,7 @@ paths:
     get:
       tags:
         - bored-endpoint
-      operationId: getSpecificActivity
+      operationId: getAnActivity
       parameters:
         - name: type
           in: query
@@ -55,3 +55,4 @@ paths:
             '*/*':
               schema:
                 type: string
+components: {}

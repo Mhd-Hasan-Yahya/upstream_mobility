@@ -1,26 +1,28 @@
 package at.upstream_mobility.itacademy.bored.command;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-public class BoredCommandIntegrationTest {
+class BoredCommandIntegrationTest {
 
     @Autowired
     private BoredCommand boredCommand;
 
     @Test
-    public void testGetAnActivity() {
+    void testGetAnActivity() {
         String expectedActivity = "Create a compost pile";
-        String result = boredCommand.getSpecificActivity("diy", 1, 0.0, "", "8631548", 0.15);
+        String result = boredCommand.getAnActivity("diy", 1, 0.0, "", "8631548", 0.15);
 
         assertEquals(expectedActivity, result);
     }
 
     @Test
-    public void testGetAnActivity_NoParams() {
-        String result = boredCommand.getSpecificActivity(null, null, null, null, null, null);
+    void testGetAnActivity_NoParams() {
+        String result = boredCommand.getAnActivity(null, null, null, null, null, null);
 
         assertNotNull(result);
 
@@ -28,8 +30,8 @@ public class BoredCommandIntegrationTest {
     }
 
     @Test
-    public void testGetAnActivity_NoActivityFound() {
-        String result = boredCommand.getSpecificActivity("sport", null, null, null, null, null);
+    void testGetAnActivity_NoActivityFound() {
+        String result = boredCommand.getAnActivity("sport", null, null, null, null, null);
 
         assertEquals("No activity found", result);
     }

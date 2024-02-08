@@ -8,7 +8,7 @@ servers:
 paths:
   /activity:
     get:
-      operationId: getSpecificActivity
+      operationId: getAnActivity
       parameters:
       - explode: true
         in: query

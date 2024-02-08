@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getSpecificActivity**](BoredEndpointApi.md#getSpecificActivity) | **GET** /activity | 
+[**getAnActivity**](BoredEndpointApi.md#getAnActivity) | **GET** /activity | 
 
 
-<a name="getSpecificActivity"></a>
-# **getSpecificActivity**
-> String getSpecificActivity(type, participants, price, link, key, accessibility)
+<a name="getAnActivity"></a>
+# **getAnActivity**
+> String getAnActivity(type, participants, price, link, key, accessibility)
 
 
 
@@ -35,10 +35,10 @@ public class Example {
     String key = ""; // String | 
     Double accessibility = 3.4D; // Double | 
     try {
-      String result = apiInstance.getSpecificActivity(type, participants, price, link, key, accessibility);
+      String result = apiInstance.getAnActivity(type, participants, price, link, key, accessibility);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling BoredEndpointApi#getSpecificActivity");
+      System.err.println("Exception when calling BoredEndpointApi#getAnActivity");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

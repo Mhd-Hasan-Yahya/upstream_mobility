@@ -54,7 +54,7 @@ public class BoredEndpointApi {
     }
 
     /**
-     * Build call for getSpecificActivity
+     * Build call for getAnActivity
      * @param type  (optional, default to )
      * @param participants  (optional)
      * @param price  (optional)
@@ -70,7 +70,7 @@ public class BoredEndpointApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSpecificActivityCall(String type, Integer participants, Double price, String link, String key, Double accessibility, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAnActivityCall(String type, Integer participants, Double price, String link, String key, Double accessibility, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -125,10 +125,10 @@ public class BoredEndpointApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSpecificActivityValidateBeforeCall(String type, Integer participants, Double price, String link, String key, Double accessibility, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAnActivityValidateBeforeCall(String type, Integer participants, Double price, String link, String key, Double accessibility, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = getSpecificActivityCall(type, participants, price, link, key, accessibility, _callback);
+        okhttp3.Call localVarCall = getAnActivityCall(type, participants, price, link, key, accessibility, _callback);
         return localVarCall;
 
     }
@@ -150,8 +150,8 @@ public class BoredEndpointApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public String getSpecificActivity(String type, Integer participants, Double price, String link, String key, Double accessibility) throws ApiException {
-        ApiResponse<String> localVarResp = getSpecificActivityWithHttpInfo(type, participants, price, link, key, accessibility);
+    public String getAnActivity(String type, Integer participants, Double price, String link, String key, Double accessibility) throws ApiException {
+        ApiResponse<String> localVarResp = getAnActivityWithHttpInfo(type, participants, price, link, key, accessibility);
         return localVarResp.getData();
     }
 
@@ -172,8 +172,8 @@ public class BoredEndpointApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> getSpecificActivityWithHttpInfo(String type, Integer participants, Double price, String link, String key, Double accessibility) throws ApiException {
-        okhttp3.Call localVarCall = getSpecificActivityValidateBeforeCall(type, participants, price, link, key, accessibility, null);
+    public ApiResponse<String> getAnActivityWithHttpInfo(String type, Integer participants, Double price, String link, String key, Double accessibility) throws ApiException {
+        okhttp3.Call localVarCall = getAnActivityValidateBeforeCall(type, participants, price, link, key, accessibility, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -196,9 +196,9 @@ public class BoredEndpointApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSpecificActivityAsync(String type, Integer participants, Double price, String link, String key, Double accessibility, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call getAnActivityAsync(String type, Integer participants, Double price, String link, String key, Double accessibility, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSpecificActivityValidateBeforeCall(type, participants, price, link, key, accessibility, _callback);
+        okhttp3.Call localVarCall = getAnActivityValidateBeforeCall(type, participants, price, link, key, accessibility, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
