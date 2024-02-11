@@ -2,13 +2,13 @@ package at.upstream_mobility.itacademy.bored.controler;
 
 import at.upstream_mobility.itacademy.bored.client.BoredClient;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class BoredEndpointTest {
@@ -16,41 +16,32 @@ class BoredEndpointTest {
     @Autowired
     private TestRestTemplate testRestTemplate;
 
-    @MockBean
+    @Autowired
     private BoredClient client;
 
     private final String localUrl = "http://localhost:8080/activity";
 
     @Test
-    void testGetAnActivity() {
-        String type = "music";
-        int participants = 1;
-        double price = 0.0;
-        String link = "";
-        String key = "5188388";
-        double accessibility = 0.0;
-        String expectedParams = "type=music&participants=1&price=0.0&link=link&key=key&accessibility=0.0";
-        String expectedActivity = "Write a song";
+    void testGetRandomActivity_NoParams() {
+        String result = testRestTemplate.getForObject(localUrl, String.class);
 
-        when(client.getParams(type, participants, price, link, key, accessibility)).thenReturn(expectedParams);
-        when(client.getActivityByParams(expectedParams)).thenReturn(expectedActivity);
+        assertNotNull(result);
 
-        String result = testRestTemplate.getForObject(localUrl + "?type=" + type +
-                "&participants=" + participants +
-                "&price=" + price +
-                "&link=" + link +
-                "&key=" + key +
-                "&accessibility=" + accessibility, String.class);
-        System.out.println(result);
-
-        assertEquals(expectedActivity, result);
-
+        assertNotEquals("No activity found", result);
     }
 
-    @Test
-    void testGetAnActivity_NoParams() {
-        String result = testRestTemplate.getForObject(localUrl, String.class);
-        assertNotNull(result);
+    @ParameterizedTest
+    @CsvSource({
+            "music, 1, 0.0, '', 5188388, 0.0",
+            "social, 1, 0.1, '', 1288934, 0.2",
+    })
+    void testGetAnActivity(String type, int participants, double price, String link, String key, double accessibility) {
+        String expectedParams = client.getParams(type, participants, price, link, key, accessibility);
+        String expectedActivity = client.getActivityByParams(expectedParams);
+
+        String result = testRestTemplate.getForObject(localUrl + expectedParams, String.class);
+
+        assertEquals(expectedActivity, result);
     }
 
     @Test
@@ -58,4 +49,5 @@ class BoredEndpointTest {
         String result = testRestTemplate.getForObject(localUrl + "?type=sport", String.class);
         assertEquals("No activity found", result);
     }
+
 }

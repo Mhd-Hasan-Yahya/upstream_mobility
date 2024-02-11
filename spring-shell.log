@@ -178,3 +178,20 @@
 1707414431310:exit
 1707414486968:get --type cooking
 1707414498164:exit
+1707479110443:get
+1707479135719:get --type music
+1707479155611:get --type sport
+1707479185007:get --type --participants
+1707479216709:get --help
+1707479622680:get
+1707479659921:get --type --participants 1
+1707479675345:get --type music --participants 1
+1707479700892:get --type sport --participants 1
+1707479735150:get --key 7091374 --participants 1
+1707479785024:get help
+1707479796266:get --help
+1707480167744:get --participants
+1707480235302:get --participants 0000000000000000000000000
+1707480275633:get --participants 0
+1707480794020:get
+1707480982905:get --type c
